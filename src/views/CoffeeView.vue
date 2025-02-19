@@ -31,6 +31,8 @@ const handelSelected = (name) => {
     selectCategoryName.value = name
 }
 
+const orderShow = ref(true)
+
 </script>
 
 <template>
@@ -69,11 +71,16 @@ const handelSelected = (name) => {
                 <h1 class="header font-mono underline !text-pink-500 !hover:text-pink-200 inline md:block">
                     Order Coffees
                 </h1>
-                <CoffeeLists :coffees="orderItems" />
+                <label for="orderList">
+                    <input type="checkbox" v-model="orderShow" id="orderList">
+                    <span v-if="orderShow">Hide</span>
+                    <span v-else>Show</span>
+                </label>
+                <CoffeeLists :coffees="orderItems" v-if="orderShow" />
             </div>
 
         </section>
     </Pannel>
 
-    <!-- <pre>{{ categories }}</pre> -->
+    <!-- <pre>{{ selectCategoryName }}</pre> -->
 </template>

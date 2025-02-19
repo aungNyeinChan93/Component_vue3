@@ -1,13 +1,17 @@
 <script setup>
 const props = defineProps(['category', 'status'])
 
-const emit = defineEmits(['selected'])
+const emit = defineEmits({
+    selected(payload) {
+        return typeof payload === 'string'
+    }
+})
 
 const handelClick = () => {
     emit('selected', props.category)
 }
 </script>
-n
+
 <template>
     <button type="button" @click="handelClick" :class="{ '!bg-green-400': status }"
         class="inline-flex items-center justify-center rounded-full border border-purple-500 px-2.5 py-0.5 text-purple-700">
