@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  .header {
+    @apply text-2xl text-center font-bold text-black capitalize;
+  }
+}
