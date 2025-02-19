@@ -2,7 +2,8 @@
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
-const show = ref(false)
+const show = ref(false);
+
 </script>
 
 <template>
@@ -66,9 +67,8 @@ const show = ref(false)
                             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                 alt="" class="size-10 object-cover" />
                         </button>
-
                         <div v-show="show"
-                            class="absolute end-0 z-10 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
+                            class="absolute end-0 z-1 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
                             role="menu">
                             <div class="p-2">
                                 <a href="#"
@@ -107,9 +107,9 @@ const show = ref(false)
                             </div>
                         </div>
                     </div>
-
                     <div class="block md:hidden">
-                        <button class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                        <button @click="show = !show" type="button"
+                            class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
                             <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />

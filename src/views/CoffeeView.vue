@@ -1,32 +1,67 @@
 <script setup>
-import CoffeeCard from '@/components/coffee/CoffeeCard.vue';
 import { useCoffeeStore } from '@/stores/coffee';
+import { computed, onMounted, ref } from 'vue';
 import Pannel from '@/components/Pannel.vue';
-import { onMounted } from 'vue';
+import CoffeeLists from '@/components/coffee/CoffeeLists.vue';
 
 const { coffees, getCoffee } = useCoffeeStore();
-
 onMounted(() => getCoffee("http://localhost:4001/coffee"));
+
+const byPrice = computed(() => coffees.filter(coffee => coffee.price <= 4000));
+
+const orders = ref([]);
+const handelCoffeeName = (name) => {
+    if (confirm('are you sure to order this one?')) {
+        orders.value.push(name);
+    }
+}
+const orderItems = computed(() => {
+    return orders.value.map((order) => coffees.filter(coffee => coffee.name === order)).flat();
+})
+
+
+
 
 </script>
 
 <template>
     <Pannel>
         <section>
-            <h1 class="header underline !text-pink-500 !hover:text-pink-200 inline md:block">
-                just really good coffee & matcha
-                Stock up on your favorites
-            </h1>
-            <div v-if="Object.keys(coffees).length" class="wrapper mt-6  px-4">
-                <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <template v-for="coffee in coffees" :key="coffee.id">
-                        <CoffeeCard :image="coffee.image" :name="coffee.name" :price="coffee.price" />
-                    </template>
-                </div>
+
+            <div class="my-4 bg-violet-200 rounded p-2">
+                <h1 class="header font-mono underline !text-pink-500 !hover:text-pink-200 inline md:block">
+                    just really good coffee & matcha
+                    Stock up on your favorites
+                </h1>
+                <Pannel class="border">
+                    <p class="text-center font-mono text-red-400 text-lg ">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit.
+                        Rerum
+                        corrupti sed esse
+                        s. Tenetur, atque debitis qui
+                        recusandae maiores. Tenetur odio rerum!</p>
+                </Pannel>
+                <CoffeeLists :coffees="coffees" @coffeeName="handelCoffeeName" />
             </div>
-            <div class="empty" v-else>
-                <p class="header !text-red-600 p-4">Loading !!!</p>
+
+            <div class="my-4">
+                <h1 class="header font-mono underline !text-pink-500 !hover:text-pink-200 inline md:block">
+                    Best Coffee
+                </h1>
+                <CoffeeLists :coffees="byPrice" />
+            </div>
+
+            <div class="mt-4" v-show="Object.keys(orderItems).length">
+                <h1 class="header font-mono underline !text-pink-500 !hover:text-pink-200 inline md:block">
+                    Order Coffees
+                </h1>
+                <CoffeeLists :coffees="orderItems" />
+
             </div>
         </section>
     </Pannel>
+
+    <!-- <pre>{{ orderItems }}</pre> -->
+
+
 </template>
