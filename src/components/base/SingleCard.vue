@@ -14,6 +14,7 @@ fetch(`https://api.github.com/users/${props.userName}`)
         const data = await response.json()
         user.value = data;
     })
+
 </script>
 
 <template>
