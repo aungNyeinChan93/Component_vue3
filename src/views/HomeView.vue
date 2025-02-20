@@ -1,5 +1,10 @@
 <script setup>
 import Button from '@/components/base/Button.vue';
+import { useGitHubUserStore } from '@/stores/githubUser';
+
+const { gitHubUsers } = useGitHubUserStore();
+console.log(gitHubUsers);
+
 </script>
 
 <template>
