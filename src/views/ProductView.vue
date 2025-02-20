@@ -19,9 +19,10 @@ provide('ourProducts', products);
     <section>
         <div v-if="products">
             <Products :products="products" />
-        </div>
-        <div v-if="products">
             <InjetProduct />
+        </div>
+        <div v-else>
+
         </div>
     </section>
 </template>
