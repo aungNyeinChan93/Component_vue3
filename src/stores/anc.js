@@ -42,4 +42,15 @@ export const anc = reactive({
       level: "10%",
     },
   ],
+  getName() {
+    return anc.name;
+  },
+
+  filterSkillByLevel(lvl, operator = ">") {
+    if (operator === ">") {
+      return anc.skill.filter((s) => s.level >= lvl);
+    } else {
+      return anc.skill.filter((s) => s.level <= lvl);
+    }
+  },
 });

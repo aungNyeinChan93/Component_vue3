@@ -1,8 +1,17 @@
 <script setup>
 import { anc } from '@/stores/anc';
+import { book } from '@/stores/book';
 
-const { name, email, phone, address, age, skill, position, avatar } = anc;
+const { name, email, skill, position, avatar, getName, filterSkillByLevel } = anc;
 const [firstSkill, secondSkill, thirdSkill, ...otherSkills] = skill;
+
+const overfifty = filterSkillByLevel('50%', '<');
+// console.log(overfifty);
+
+// book
+// const { bookName, bestSeller } = book;
+
+// const { name: bestSellerName, cover } = bestSeller;
 
 </script>
 
@@ -13,7 +22,7 @@ const [firstSkill, secondSkill, thirdSkill, ...otherSkills] = skill;
         <div class="sm:flex sm:justify-between sm:gap-4">
             <div>
                 <h3 class="text-lg font-bold text-gray-900 sm:text-xl">
-                    {{ name }}
+                    {{ getName() }}
                 </h3>
 
                 <p class="mt-1 text-xs font-medium text-gray-600">{{ email }}</p>

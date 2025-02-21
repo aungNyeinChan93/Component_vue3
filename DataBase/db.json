@@ -59,5 +59,20 @@
       "name": "Cake & IceCream"
     }
   ],
-  "contacts": []
+  "contacts": [
+    {
+      "id": "d672f309-9fc3-4778-bb2d-d20712a7690c",
+      "name": "Reese Chase",
+      "email": "cozovygam@mailinator.com",
+      "phone": "+1 (685) 574-8236",
+      "message": "Dolore quod est lab"
+    },
+    {
+      "id": "ad407ee1-d211-445e-9010-f00e469c9bab",
+      "name": "Neville Kent",
+      "email": "fimejibeh@mailinator.com",
+      "phone": "+1 (838) 555-5984",
+      "message": "Incidunt qui cillum"
+    }
+  ]
 }
