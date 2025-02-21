@@ -29,6 +29,16 @@ const router = createRouter({
       name: "todos",
       component: () => import("@/views/TodoView.vue"),
     },
+    {
+      path: "/contact",
+      name: "contact",
+      component: () => import("@/views/ContactView.vue"),
+    },
+    {
+      path: "/contacts/list",
+      name: "contactsList",
+      component: () => import("@/views/ContactListView.vue"),
+    },
   ],
 });
 

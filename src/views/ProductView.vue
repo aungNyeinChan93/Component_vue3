@@ -17,12 +17,12 @@ provide('ourProducts', products);
 
 <template>
     <section>
-        <div v-if="products">
+        <div v-if="Object.keys(products).length">
             <Products :products="products" />
             <InjetProduct />
         </div>
         <div v-else>
-
+            <p>Loading...</p>
         </div>
     </section>
 </template>

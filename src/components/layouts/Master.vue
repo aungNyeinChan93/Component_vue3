@@ -60,7 +60,10 @@ const show = ref(false);
                             </li>
 
                             <li>
-                                <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Blog </a>
+                                <RouterLink :to="{ name: 'contact' }"
+                                    :class="{ 'text-gray-500 transition px-2 py-1 rounded ': true, '!bg-green-400': $route.name === 'contact' }">
+                                    Contact
+                                </RouterLink>
                             </li>
                         </ul>
                     </nav>

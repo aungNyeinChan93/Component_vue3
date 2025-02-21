@@ -1,5 +1,6 @@
 <script setup>
 import { useTodoStore } from '@/stores/todo';
+import { inject, onMounted } from 'vue';
 defineProps(['todo']);
 
 const todoStore = useTodoStore();
@@ -9,6 +10,7 @@ const remove = (id) => {
         todoStore.removeTodo(id);
     }
 }
+
 
 </script>
 
