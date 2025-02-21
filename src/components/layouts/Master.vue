@@ -65,6 +65,13 @@ const show = ref(false);
                                     Contact
                                 </RouterLink>
                             </li>
+
+                            <li>
+                                <RouterLink :to="{ name: 'test' }"
+                                    :class="{ 'text-gray-500 transition px-2 py-1 rounded ': true, '!bg-green-400': $route.name === 'test' }">
+                                    Test
+                                </RouterLink>
+                            </li>
                         </ul>
                     </nav>
 
@@ -92,11 +99,11 @@ const show = ref(false);
                                     Billing summary
                                 </a>
 
-                                <a href="#"
+                                <RouterLink :to="{ name: 'contactsList' }"
                                     class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                                     role="menuitem">
-                                    Team settings
-                                </a>
+                                    Contact Lists
+                                </RouterLink>
                             </div>
 
                             <div class="p-2">

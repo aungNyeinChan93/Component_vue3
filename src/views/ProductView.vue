@@ -12,7 +12,6 @@ onMounted(() => getProduct(`https://fakestoreapi.com/products`));
 provide('ourProducts', products);
 
 
-
 </script>
 
 <template>

@@ -23,5 +23,14 @@ export const useContact = defineStore("contact", () => {
     }
   };
 
-  return { contacts, getContacts, postContact };
+  const deleteContact = async (id) => {
+    try {
+      await axios.delete(`http://localhost:4001/contacts/${id}`);
+      // contacts.value = contacts.value.filter((contact) => contact.id !== id);
+    } catch (error) {
+      console.error("Failed to delete contact:", error);
+    }
+  };
+
+  return { contacts, getContacts, postContact, deleteContact };
 });

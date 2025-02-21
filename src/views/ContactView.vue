@@ -10,7 +10,7 @@ onMounted(async () => {
 });
 
 const form = reactive({
-    id: (contacts?.length ?? 0) + 1 + Math.random(),
+    id: crypto.randomUUID(),
     name: '',
     email: '',
     phone: '',

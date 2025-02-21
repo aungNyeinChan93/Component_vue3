@@ -8,5 +8,9 @@ export const useProductStore = defineStore("product", () => {
     const responce = await axios.get(url);
     products.value = await responce.data;
   };
-  return { products, getProduct };
+  const postProduct = async (url, product) => {
+    const res = await axios.post("url", products);
+    products.value.push(res.data);
+  };
+  return { products, getProduct, postProduct };
 });
