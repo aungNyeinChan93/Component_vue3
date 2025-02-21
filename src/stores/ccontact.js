@@ -14,5 +14,14 @@ export const useContact = defineStore("contact", () => {
     }
   };
 
-  return { contacts, getContacts };
+  const postContact = async (contact) => {
+    try {
+      const res = await axios.post("http://localhost:4001/contacts", contact);
+      contacts.value.push(res.data);
+    } catch (error) {
+      console.error("Failed to create contact:", error);
+    }
+  };
+
+  return { contacts, getContacts, postContact };
 });

@@ -1,18 +1,23 @@
 <script setup>
-import { inject, onMounted, ref } from 'vue';
 import useGeneral from '@/composables/useGeneral';
+import { inject, ref } from 'vue';
 import { RouterLink } from 'vue-router';
+import { useContact } from '@/stores/ccontact';
+
 
 const { flash, postData } = useGeneral();
-const { form, contacts } = inject('form')
-const contactResult = ref();
 
+const { contacts, postContact } = useContact();
+
+const { form } = inject('form')
+const contactResult = ref();
 const submit = async () => {
     flash(
         'success',
         "Success send!",
         `Name is${form.name}, Email is ${form.email}, Phone is ${form.phone}, Message is ${form.message}`);
-    contactResult.value = await postData('http://localhost:4001/contacts', form);
+    // contactResult.value = await postData('http://localhost:4001/contacts', form);
+    contactResult.value = await postContact(form);
 }
 
 </script>

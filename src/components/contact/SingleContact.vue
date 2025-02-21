@@ -14,7 +14,7 @@ defineProps({
 
         <div class="inline-flex gap-2 rounded-sm bg-green-100 p-1 text-green-600">
 
-            <span class="text-xs font-medium"> {{ contact.phone }}</span>
+            <a href="#" class="text-xs font-medium"> {{ contact.phone }}</a>
         </div>
     </article>
 </template>
