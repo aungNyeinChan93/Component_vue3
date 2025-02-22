@@ -69,7 +69,7 @@ const show = ref(false);
                             <li>
                                 <RouterLink :to="{ name: 'test' }"
                                     :class="{ 'text-gray-500 transition px-2 py-1 rounded ': true, '!bg-green-400': $route.name === 'test' }">
-                                    Test
+                                    About Me
                                 </RouterLink>
                             </li>
                         </ul>
@@ -87,17 +87,17 @@ const show = ref(false);
                             class="absolute end-0 z-1 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
                             role="menu">
                             <div class="p-2">
-                                <a href="#"
+                                <RouterLink to="/test"
                                     class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                                     role="menuitem">
                                     My profile
-                                </a>
+                                </RouterLink>
 
-                                <a href="#"
+                                <RouterLink to="team"
                                     class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                                     role="menuitem">
-                                    Billing summary
-                                </a>
+                                    Team Members
+                                </RouterLink>
 
                                 <RouterLink :to="{ name: 'contactsList' }"
                                     class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"

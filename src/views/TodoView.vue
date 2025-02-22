@@ -19,7 +19,9 @@ const handleTodoEmmit = (newtodo) => {
 
 <template>
     <section>
-        <TodoCreateForm v-model="todo" @todoEmit="handleTodoEmmit" />
+        <div class="px-10">
+            <TodoCreateForm v-model="todo" @todoEmit="handleTodoEmmit" />
+        </div>
         <div v-if="todoStore.todos" class="mt-5">
             <TodoLists :todos="todoStore.todos" />
         </div>
