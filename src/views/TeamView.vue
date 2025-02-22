@@ -6,13 +6,17 @@ import CreateMember from '@/components/team/CreateMember.vue';
 import { useTeamStore } from '@/stores/team';
 import { ref } from 'vue';
 
-const { teams: members, form, teamName } = useTeamStore();
+const { teams: members, form, teamName, changeTeamName } = useTeamStore();
 
 const createMemberStatus = ref(false);
 
 const handleAddMember = () => {
     createMemberStatus.value = !createMemberStatus.value;
 }
+
+setTimeout(() => {
+    changeTeamName('the change !')
+}, 4000);
 
 </script>
 
@@ -27,7 +31,7 @@ const handleAddMember = () => {
             </div>
         </header>
         <main>
-            <div class="my-4 px-10">
+            <div class="my-4 px-10" v-show="Object.keys(members).length">
                 <Table :members="members" />
             </div>
         </main>

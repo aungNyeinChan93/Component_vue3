@@ -25,4 +25,5 @@ const props = defineProps({
             </tbody>
         </table>
     </div>
+
 </template>

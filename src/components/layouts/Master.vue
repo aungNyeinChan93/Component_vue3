@@ -93,7 +93,7 @@ const show = ref(false);
                                     My profile
                                 </RouterLink>
 
-                                <RouterLink to="team"
+                                <RouterLink to="/team"
                                     class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                                     role="menuitem">
                                     Team Members
@@ -103,6 +103,12 @@ const show = ref(false);
                                     class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                                     role="menuitem">
                                     Contact Lists
+                                </RouterLink>
+
+                                <RouterLink :to="{ name: 'customers' }"
+                                    class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                                    role="menuitem">
+                                    Customer
                                 </RouterLink>
                             </div>
 

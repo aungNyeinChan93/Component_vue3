@@ -42,5 +42,9 @@ export const useTeamStore = defineStore("team", () => {
     position: "",
   });
 
-  return { teams, form, teamName };
+  const changeTeamName = (name) => {
+    teamName.value = name;
+  };
+
+  return { teams, form, teamName, changeTeamName };
 });
